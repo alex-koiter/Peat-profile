@@ -32,10 +32,10 @@ plot_data <- data %>%
 # MAE
 mae <- plot_data %>%
   group_by(Model) %>%
-  summarise(mae = scales::scientific((sum(abs(value - K_sat)))/n(), digits = 3),
-            mse = scales::scientific(((sum(K_sat - value)^2)/n())^0.5, digits = 3), 
-            max = max(K_sat),
-            min = min(K_sat),
+  summarise(mae = scales::scientific((sum(abs(value - ksat)))/n(), digits = 3),
+            mse = scales::scientific(((sum(ksat - value)^2)/n())^0.5, digits = 3), 
+            max = max(ksat),
+            min = min(ksat),
             n = n()) %>%
   mutate(label = paste0("MAE == ", mae))
 mae
@@ -45,7 +45,7 @@ mae
 greens <- c("#9CD874", "#79C940", "#56932A", "#2C4C15", "#142707") %>%
   set_names(rev(LETTERS[1:5]))
 
-p1 <- ggplot(data = plot_data, aes(x = K_sat, y = value, colour = bucket)) +
+p1 <- ggplot(data = plot_data, aes(x = ksat, y = value, colour = bucket)) +
   geom_point() +
   theme_bw() +
   geom_abline(intercept = 0, slope = 1) +
@@ -59,4 +59,4 @@ p1 <- ggplot(data = plot_data, aes(x = K_sat, y = value, colour = bucket)) +
   facet_wrap(~Model)
 p1
 
-ggsave(plot = p1, filename = "Figure Supp 4.png", height = 120, width = 174, units = "mm", dpi = 600)
+ggsave(plot = p1, filename = "Figure S4.png", height = 120, width = 174, units = "mm", dpi = 600)

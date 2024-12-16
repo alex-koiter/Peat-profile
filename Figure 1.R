@@ -7,6 +7,9 @@ library(patchwork)
 data <-  read_csv("Data.csv") %>%
   pivot_longer(cols = c("particle_density_g_cm3", "bulk_density_g_cm3", "porosity"), names_to = "parameter", values_to = "value")
 
+
+k_data <- read_csv("Ksat data.csv")
+
 #' # Jitter the von Post data to prevent overlap when plotting
 vp_data <- data %>%
   mutate(von_post_2 = as.numeric(von_post_2)) %>%
@@ -58,10 +61,23 @@ p <- ggplot(data = filter(data, parameter == "porosity"), aes(x = mid_depth, y =
   coord_flip() +
   labs(tag = "c)", x = "Depth (cm)", y = expression(paste("Porosity (", cm^3~cm^{-3}, ")")), colour = "Core") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
-        legend.position = "none") +
+        legend.position = "none",
+        axis.title.y = element_blank()) +
   scale_color_manual(values = greens)
 p
 
+k <- ggplot(data = k_data, aes(x = mid_depth, y = ksat, colour = bucket)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  scale_x_reverse(limits =c(200, 0), breaks = seq(0,200,50)) +
+  scale_y_log10() +
+  coord_flip() +
+  labs(tag = "c)", x = "Depth (cm)", y = expression(paste("Hydraulic Conductivity (", m~s^{-1}, ")")), colour = "Core") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+        legend.position = "none") +
+  scale_color_manual(values = greens)
+k
 
 
 vp <-  ggplot(data = vp_data, aes(x = mid_depth, y = as.numeric(von_post_3), colour = bucket)) +
@@ -77,10 +93,10 @@ vp <-  ggplot(data = vp_data, aes(x = mid_depth, y = as.numeric(von_post_3), col
   scale_color_manual(values = greens)
 vp
 
-p2 <- bd + pd + p + vp + 
-  plot_layout(guides = 'collect', axes = "collect", axis_titles = "collect") + 
+p2 <- bd + pd + p + k + vp + guide_area() +
+  plot_layout(guides = 'collect', axes = "collect", axis_titles = "collect", ncol = 3) + 
   plot_annotation(tag_levels = "a", tag_suffix = ")") & 
-  theme(legend.position = 'bottom', plot.tag.location = "panel", plot.tag.position = c(0.045,0.955), aspect.ratio=1)
+  theme(plot.tag.location = "panel", plot.tag.position = c(0.045,0.955), aspect.ratio=1)
 p2
 
-ggsave(plot = p2, filename = "Figure 1.png", height = 170, width = 174, units = "mm", dpi = 600)
+ggsave(plot = p2, filename = "Figure 1.png", height = 170, width = 210, units = "mm", dpi = 600)
