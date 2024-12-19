@@ -1,12 +1,6 @@
 library(tidyverse)
-library(readxl)
-library(janitor)
 
-data <- read_excel("SupKfiguredata.xlsx") |>
-  clean_names() |>
-  rename("site_depth" = pipe, "time" = time_h) 
-
-write.csv(data, "SupKfiguredata.csv")
+data <- read.csv("SupKfiguredata.csv")
 
 text_data  <- data |>  
   mutate(visual = case_when(site_depth == "A70" ~ paste("VI =", visual, "(not used)"),
