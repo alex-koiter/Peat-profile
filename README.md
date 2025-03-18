@@ -20,4 +20,11 @@ This repository contains two data files:
 1. Data.csv contains the bulk density, particle density, porosity, von post score data for all 5 cores
 2. Ksat data.csv contains the hydraulic conductivity data for all 5 cores
 
-This repository also contains all of the figures and R scripts used in the publication
+This repository also contains a pre-print and all of the figures and R scripts used in the publication.
+
+To cite the paper or the data please use the following:
+
+Whittington P, Koiter A (2025) Change in Particle Density and Other Hydrophysical Properties With Depth in a Northern Boreal Bog Peatland. 45:36. https://doi.org/10.1007/s13157-025-01918-8
+
+
+
