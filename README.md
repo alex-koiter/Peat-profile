@@ -14,7 +14,6 @@ ORCID: [0000-0002-6147-4029](https://orcid.org/0000-0002-6147-4029)
 email: koitera\@brandonu.ca\
 ORCID: [0000-0002-9355-9561](https://orcid.org/0000-0002-9355-9561)
 
-This manuscript that has been submitted for peer-reviewed at the [Wetlands](https://link.springer.com/journal/13157) journal.
 
 This repository contains two data files:
 1. Data.csv contains the bulk density, particle density, porosity, von post score data for all 5 cores
@@ -26,5 +25,5 @@ To cite the paper or the data please use the following:
 
 Whittington P, Koiter A (2025) Change in Particle Density and Other Hydrophysical Properties With Depth in a Northern Boreal Bog Peatland. 45:36. https://doi.org/10.1007/s13157-025-01918-8
 
-
+A view-only version of this manuscript can be view via Springer Nature [SharedIt](https://rdcu.be/ed7Li) content-sharing initiative.
 
