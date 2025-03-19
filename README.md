@@ -1,4 +1,4 @@
-# Evaluation of hydro-physical properties in a northern boreal bog peatland 
+# Change in Particle Density and Other Hydrophysical Properties With Depth in a Northern Boreal Bog Peatland
 
 Pete Whittington<sup>*1</sup> and Alexander J Koiter<sup>2</sup> 
 
