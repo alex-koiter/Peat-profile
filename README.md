@@ -25,5 +25,5 @@ To cite the paper or the data please use the following:
 
 Whittington P, Koiter A (2025) Change in Particle Density and Other Hydrophysical Properties With Depth in a Northern Boreal Bog Peatland. 45:36. https://doi.org/10.1007/s13157-025-01918-8
 
-A view-only version of this manuscript can be view via Springer Nature [SharedIt](https://rdcu.be/ed7Li) content-sharing initiative.
+A view-only version of this manuscript can be viewed via Springer Nature [SharedIt](https://rdcu.be/ed7Li) content-sharing initiative.
 
